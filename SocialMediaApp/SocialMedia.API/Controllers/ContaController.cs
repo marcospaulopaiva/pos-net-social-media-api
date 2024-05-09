@@ -15,15 +15,15 @@ namespace SocialMedia.API.Controllers
             _contaService = contaService;
         }
 
-        [HttpPost]
-        public IActionResult Post(CreateContaInputModel model)
+        [HttpPost("Cadastro")]
+        public IActionResult Cadastro(CreateContaInputModel model)
         {
             var result = _contaService.Insert(model);
 
             return CreatedAtAction(nameof(GetById), new { id = result.Data }, model);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("BuscarPorId/{id}")]
         public IActionResult GetById(int id)
         {
             var result = _contaService.GetById(id);
@@ -36,8 +36,21 @@ namespace SocialMedia.API.Controllers
             return Ok(result);
         }
 
-        [HttpPut]
-        public IActionResult Put(int id, UpdateContaInputModel model)
+        [HttpGet("BuscarPorEmail/{email}")]
+        public IActionResult GetByEmail(string email)
+        {
+            var result = _contaService.GetByEmail(email);
+
+            if (!result.IsSuccess)
+            {
+                return NotFound();
+            }
+
+            return Ok(result);
+        }
+
+        [HttpPut("Atualizar/{id}")]
+        public IActionResult Atualizar(int id, UpdateContaInputModel model)
         {
             var result = _contaService.Update(id, model);
 
@@ -49,7 +62,7 @@ namespace SocialMedia.API.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("Deletar/{id}")]
         public IActionResult Delete(int id)
         {
             var result = _contaService.Delete(id);
@@ -61,5 +74,18 @@ namespace SocialMedia.API.Controllers
 
             return NoContent();
         }
-    }
+
+        [HttpPut("MudarSenha/{email}")]
+        public IActionResult MudarSenha(string email, UpdateSenhaContaInputModel model)
+        {
+            var result = _contaService.MudarSenha(email, model);
+
+            if (!result.IsSuccess)
+            {
+                return NotFound();
+            }
+
+            return Ok(result);
+        }
+}
 }

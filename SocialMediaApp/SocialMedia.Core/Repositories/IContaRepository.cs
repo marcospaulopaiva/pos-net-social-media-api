@@ -6,7 +6,8 @@ namespace SocialMedia.Core.Repositories
     {
         int Add(Conta conta);
         void Update(Conta conta);
-        void Delete(Conta conta);
         Conta? GetById(int id);
+        Conta? GetByEmail(string email);
+        void Delete(Conta conta);
     }
 }

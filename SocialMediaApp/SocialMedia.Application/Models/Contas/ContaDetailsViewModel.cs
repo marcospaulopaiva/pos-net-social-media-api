@@ -3,11 +3,10 @@ namespace SocialMedia.Application.Models.Contas
 {
     public class ContaDetailsViewModel
     {
-        public ContaDetailsViewModel(int id, string nomeCompleto, string senha, string email, DateTime dataNascimento, string telefone)
+        public ContaDetailsViewModel(int id, string nomeCompleto, string email, DateTime dataNascimento, string telefone)
         {
             Id = id;
             NomeCompleto = nomeCompleto;
-            Senha = senha;
             Email = email;
             DataNascimento = dataNascimento;
             Telefone = telefone;
@@ -15,7 +14,6 @@ namespace SocialMedia.Application.Models.Contas
 
         public int Id { get; set; }
         public string NomeCompleto { get; set; }
-        public string Senha { get; set; }
         public string Email { get; set; }
         public DateTime DataNascimento { get; set; }
         public string Telefone { get; set; }
@@ -26,7 +24,6 @@ namespace SocialMedia.Application.Models.Contas
             new ContaDetailsViewModel(
                 entity.Id,
                 entity.NomeCompleto,
-                entity.Senha,
                 entity.Email,
                 entity.DataNascimento,
                 entity.Telefone

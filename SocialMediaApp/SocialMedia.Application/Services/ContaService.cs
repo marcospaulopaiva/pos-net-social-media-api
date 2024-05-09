@@ -2,11 +2,7 @@
 using SocialMedia.Application.Models.Contas;
 using SocialMedia.Core.Entities;
 using SocialMedia.Core.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using static SocialMedia.Application.Models.Contas.ContaDetailsViewModel;
 
 namespace SocialMedia.Application.Services
 {
@@ -65,13 +61,38 @@ namespace SocialMedia.Application.Services
             return ResultViewModel.Success();
         }
 
-        public ResultViewModel<Conta?> GetById(int id)
+        public ResultViewModel<ContaViewModel?> GetById(int id)
         {
             var conta = _contaRepository.GetById(id);
 
             return conta is null ?
-                ResultViewModel<Conta?>.Error("Not found") :
-                ResultViewModel<Conta?>.Success(conta);
+                ResultViewModel<ContaViewModel?>.Error("Not found") :
+                ResultViewModel<ContaViewModel?>.Success(ContaViewModel.FromEntity(conta));
+        }
+
+        public ResultViewModel<ContaViewModel?> GetByEmail(string email)
+        {
+            var conta = _contaRepository.GetByEmail(email);
+
+            return conta is null ?
+                ResultViewModel<ContaViewModel?>.Error("Not found") :
+                ResultViewModel<ContaViewModel?>.Success(ContaViewModel.FromEntity(conta));
+        }
+
+        public ResultViewModel MudarSenha(string email, UpdateSenhaContaInputModel model)
+        {
+            var conta = _contaRepository.GetByEmail(email);
+
+            if ((conta != null) && (conta.Senha == model.Senha))
+            {
+                conta.MudarSenha(model.NovaSenha);
+
+                _contaRepository.Update(conta);
+
+                return ResultViewModel.Success();
+            }
+
+            return ResultViewModel.Error("Not found");
         }
 
     }

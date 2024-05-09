@@ -19,13 +19,11 @@ namespace SocialMedia.Infrastructure.Persistence.Repositories
 
             return conta.Id;
         }
-
-        public void Delete(Conta conta)
+        public void Update(Conta conta)
         {
             _context.Contas.Update(conta);
             _context.SaveChanges();
         }
-
         public Conta? GetById(int id)
         {
             var conta = _context.Contas
@@ -33,11 +31,18 @@ namespace SocialMedia.Infrastructure.Persistence.Repositories
 
             return conta;
         }
+        public Conta? GetByEmail(string email)
+        {
+            var conta = _context.Contas
+                .SingleOrDefault(c => c.Email == email);
 
-        public void Update(Conta conta)
+            return conta;
+        }
+        public void Delete(Conta conta)
         {
             _context.Contas.Update(conta);
             _context.SaveChanges();
         }
+        
     }
 }

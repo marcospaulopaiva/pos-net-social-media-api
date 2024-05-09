@@ -1,6 +1,6 @@
 ﻿using SocialMedia.Application.Models;
 using SocialMedia.Application.Models.Contas;
-using SocialMedia.Core.Entities;
+using static SocialMedia.Application.Models.Contas.ContaDetailsViewModel;
 
 namespace SocialMedia.Application.Services
 {
@@ -9,6 +9,8 @@ namespace SocialMedia.Application.Services
         ResultViewModel<int> Insert(CreateContaInputModel model);
         ResultViewModel Update(int id, UpdateContaInputModel model);
         ResultViewModel Delete(int id);
-        ResultViewModel<Conta?> GetById(int id);
+        ResultViewModel<ContaViewModel?> GetById(int id);
+        ResultViewModel<ContaViewModel?> GetByEmail(string email);
+        public ResultViewModel MudarSenha(string email, UpdateSenhaContaInputModel model);
     }
 }

@@ -22,5 +22,10 @@
             NomeCompleto = nomeCompleto;
             DataNascimento = dataNascimento;
         }
+
+        public void MudarSenha(string novaSenha)
+        {
+            Senha = novaSenha;
+        }
     }
 }
