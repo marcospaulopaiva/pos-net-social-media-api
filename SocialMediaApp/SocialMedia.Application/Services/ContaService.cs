@@ -1,5 +1,6 @@
 ﻿using SocialMedia.Application.Models;
 using SocialMedia.Application.Models.Contas;
+using SocialMedia.Application.Models.Perfis;
 using SocialMedia.Core.Entities;
 using SocialMedia.Core.Repositories;
 using static SocialMedia.Application.Models.Contas.ContaDetailsViewModel;
@@ -35,7 +36,7 @@ namespace SocialMedia.Application.Services
 
             if (conta is null)
             {
-                return ResultViewModel.Error("Not faund");
+                return ResultViewModel.Error("Not found");
             }
 
             conta.Update(model.NomeCompleto, model.DataNascimento);
@@ -105,6 +106,22 @@ namespace SocialMedia.Application.Services
             }
 
             return ResultViewModel.Error("Not found");
+        }
+
+        public ResultViewModel Perfil(int id, CreatePerfilInputModel model)
+        {
+            var conta = _contaRepository.GetById(id);
+
+            if (conta is null)
+            {
+                return ResultViewModel.Error("Not found");
+            }
+
+            var perfil = new Perfil(model.IdConta, model.NomeExibicao, model.Sobre, model.Foto, model.Localidade, model.Profissao);
+
+            _contaRepository.AddPerfil(perfil);
+
+            return ResultViewModel.Success();
         }
     }
 }

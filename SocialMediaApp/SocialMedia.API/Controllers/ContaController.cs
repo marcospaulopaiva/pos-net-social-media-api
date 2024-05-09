@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SocialMedia.Application.Models.Contas;
+using SocialMedia.Application.Models.Perfis;
 using SocialMedia.Application.Services;
 
 namespace SocialMedia.API.Controllers
@@ -99,6 +100,19 @@ namespace SocialMedia.API.Controllers
             }
 
             return Ok(result);
+        }
+
+        [HttpPost("{id}/perfis")]
+        public IActionResult PostPerfil(int id, CreatePerfilInputModel model)
+        {
+            var result = _contaService.Perfil(id, model);
+
+            if (!result.IsSuccess)
+            {
+                return NotFound();
+            }
+
+            return NoContent();
         }
 }
 }

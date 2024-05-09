@@ -1,5 +1,6 @@
 ﻿using SocialMedia.Application.Models;
 using SocialMedia.Application.Models.Contas;
+using SocialMedia.Application.Models.Perfis;
 using static SocialMedia.Application.Models.Contas.ContaDetailsViewModel;
 
 namespace SocialMedia.Application.Services
@@ -13,5 +14,6 @@ namespace SocialMedia.Application.Services
         ResultViewModel<ContaViewModel?> GetByEmail(string email);
         ResultViewModel MudarSenha(string email, UpdateSenhaContaInputModel model);
         ResultViewModel Login(string email, string senha);
+        ResultViewModel Perfil(int id, CreatePerfilInputModel model);
     }
 }

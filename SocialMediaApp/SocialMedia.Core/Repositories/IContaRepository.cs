@@ -9,5 +9,6 @@ namespace SocialMedia.Core.Repositories
         Conta? GetById(int id);
         Conta? GetByEmail(string email);
         void Delete(Conta conta);
+        void AddPerfil(Perfil perfil);
     }
 }

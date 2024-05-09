@@ -43,6 +43,11 @@ namespace SocialMedia.Infrastructure.Persistence.Repositories
             _context.Contas.Update(conta);
             _context.SaveChanges();
         }
-        
+
+        public void AddPerfil(Perfil perfil)
+        {
+            _context.Perfis.Add(perfil);
+            _context.SaveChanges();
+        }
     }
 }
