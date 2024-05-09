@@ -95,5 +95,16 @@ namespace SocialMedia.Application.Services
             return ResultViewModel.Error("Not found");
         }
 
+        public ResultViewModel Login(string email, string senha)
+        {
+            var conta = _contaRepository.GetByEmail(email);
+
+            if ((conta != null) && (conta.Senha == senha))
+            {
+                return ResultViewModel.Success();
+            }
+
+            return ResultViewModel.Error("Not found");
+        }
     }
 }

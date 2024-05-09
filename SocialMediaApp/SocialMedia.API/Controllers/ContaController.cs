@@ -87,5 +87,18 @@ namespace SocialMedia.API.Controllers
 
             return Ok(result);
         }
+
+        [HttpGet("Login")]
+        public IActionResult Login(string login, string senha)
+        {
+            var result = _contaService.Login(login, senha);
+
+            if (!result.IsSuccess)
+            {
+                return NotFound();
+            }
+
+            return Ok(result);
+        }
 }
 }

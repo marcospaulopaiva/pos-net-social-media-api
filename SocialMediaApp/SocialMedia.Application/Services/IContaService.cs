@@ -11,6 +11,7 @@ namespace SocialMedia.Application.Services
         ResultViewModel Delete(int id);
         ResultViewModel<ContaViewModel?> GetById(int id);
         ResultViewModel<ContaViewModel?> GetByEmail(string email);
-        public ResultViewModel MudarSenha(string email, UpdateSenhaContaInputModel model);
+        ResultViewModel MudarSenha(string email, UpdateSenhaContaInputModel model);
+        ResultViewModel Login(string email, string senha);
     }
 }
