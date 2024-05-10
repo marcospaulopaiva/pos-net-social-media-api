@@ -29,7 +29,6 @@ namespace SocialMedia.Application.Services
 
             return ResultViewModel<int>.Success(conta.Id);
         }
-
         public ResultViewModel Update(int id, UpdateContaInputModel model)
         {
             var conta = _contaRepository.GetById(id);
@@ -45,7 +44,6 @@ namespace SocialMedia.Application.Services
 
             return ResultViewModel.Success();
         }
-
         public ResultViewModel Delete(int id)
         {
             var conta = _contaRepository.GetById(id);
@@ -61,7 +59,6 @@ namespace SocialMedia.Application.Services
 
             return ResultViewModel.Success();
         }
-
         public ResultViewModel<ContaViewModel?> GetById(int id)
         {
             var conta = _contaRepository.GetById(id);
@@ -70,7 +67,6 @@ namespace SocialMedia.Application.Services
                 ResultViewModel<ContaViewModel?>.Error("Not found") :
                 ResultViewModel<ContaViewModel?>.Success(ContaViewModel.FromEntity(conta));
         }
-
         public ResultViewModel<ContaViewModel?> GetByEmail(string email)
         {
             var conta = _contaRepository.GetByEmail(email);
@@ -79,7 +75,6 @@ namespace SocialMedia.Application.Services
                 ResultViewModel<ContaViewModel?>.Error("Not found") :
                 ResultViewModel<ContaViewModel?>.Success(ContaViewModel.FromEntity(conta));
         }
-
         public ResultViewModel MudarSenha(string email, UpdateSenhaContaInputModel model)
         {
             var conta = _contaRepository.GetByEmail(email);
@@ -95,7 +90,6 @@ namespace SocialMedia.Application.Services
 
             return ResultViewModel.Error("Not found");
         }
-
         public ResultViewModel Login(string email, string senha)
         {
             var conta = _contaRepository.GetByEmail(email);
@@ -107,7 +101,6 @@ namespace SocialMedia.Application.Services
 
             return ResultViewModel.Error("Not found");
         }
-
         public ResultViewModel Perfil(int id, CreatePerfilInputModel model)
         {
             var conta = _contaRepository.GetById(id);
@@ -117,7 +110,7 @@ namespace SocialMedia.Application.Services
                 return ResultViewModel.Error("Not found");
             }
 
-            var perfil = new Perfil(model.IdConta, model.NomeExibicao, model.Sobre, model.Foto, model.Localidade, model.Profissao);
+            var perfil = new Perfil(id, model.NomeExibicao, model.Sobre, model.Foto, model.Localidade, model.Profissao);
 
             _contaRepository.AddPerfil(perfil);
 

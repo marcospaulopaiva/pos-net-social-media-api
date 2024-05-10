@@ -30,6 +30,7 @@ namespace SocialMedia.Infrastructure
         private static IServiceCollection AddRepositories(this IServiceCollection services)
         {
             services.AddScoped<IContaRepository, ContaRepository>();
+            services.AddScoped<IPerfilRepository, PerfilRepository>();
             return services;
         }
     }

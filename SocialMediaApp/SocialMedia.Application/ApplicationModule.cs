@@ -16,7 +16,7 @@ namespace SocialMedia.Application
         private static IServiceCollection AddServices(this IServiceCollection services)
         {
             services.AddScoped<IContaService, ContaService>();
-            
+            services.AddScoped<IPerfilService, PerfilService>();
 
             return services;
         }

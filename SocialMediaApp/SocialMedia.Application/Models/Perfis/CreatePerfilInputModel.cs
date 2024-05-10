@@ -1,10 +1,7 @@
-﻿using SocialMedia.Core.Entities;
-
-namespace SocialMedia.Application.Models.Perfis
+﻿namespace SocialMedia.Application.Models.Perfis
 {
     public class CreatePerfilInputModel
     {
-        public int IdConta { get;  set; }
         public string NomeExibicao { get;  set; }
         public string Sobre { get;  set; }
         public string Foto { get;  set; }

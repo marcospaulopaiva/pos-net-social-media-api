@@ -102,7 +102,7 @@ namespace SocialMedia.API.Controllers
             return Ok(result);
         }
 
-        [HttpPost("{id}/perfis")]
+        [HttpPost("{id}/perfil/Cadastro")]
         public IActionResult PostPerfil(int id, CreatePerfilInputModel model)
         {
             var result = _contaService.Perfil(id, model);
