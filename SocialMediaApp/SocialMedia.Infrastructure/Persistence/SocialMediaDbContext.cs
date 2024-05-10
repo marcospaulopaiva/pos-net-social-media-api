@@ -14,6 +14,7 @@ namespace SocialMedia.Infrastructure.Persistence
 
         public DbSet<Conta> Contas { get; set; }
         public DbSet<Perfil> Perfis { get; set; }
+        public DbSet<Publicacao> Publicacoes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -30,7 +31,18 @@ namespace SocialMedia.Infrastructure.Persistence
             builder.Entity<Perfil>(e =>
             {
                 e.HasKey(p => p.Id);
+
+                e.HasMany(p => p.Publicacoes)
+                    .WithOne(u => u.Perfil)
+                    .HasForeignKey(u => u.IdPerfil)
+                    .OnDelete(DeleteBehavior.Restrict);
             });
+
+            builder.Entity<Publicacao>(e =>
+            {
+                e.HasKey(p => p.Id);
+            });
+
 
             base.OnModelCreating(builder);
         }

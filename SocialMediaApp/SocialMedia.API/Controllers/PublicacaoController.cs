@@ -1,0 +1,72 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using SocialMedia.Application.Models.Publicacoes;
+using SocialMedia.Application.Services;
+
+namespace SocialMedia.API.Controllers
+{
+    [Route("api/publicacoes")]
+    [ApiController]
+    public class PublicacaoController : Controller
+    {
+        private readonly IPublicacaoService _publicacaoService;
+
+        public PublicacaoController(IPublicacaoService publicacaoService)
+        {
+            _publicacaoService = publicacaoService;
+        }
+
+        [HttpPost("Cadastro/{id}")]
+        public IActionResult Cadastro(int id, CreatePublicacaoInputModel model)
+        {
+            var result = _publicacaoService.Insert(id, model);
+
+            return CreatedAtAction(nameof(GetById), new { id = result.Data }, model);
+        }
+
+        [HttpDelete("Remocao/{id}")]
+        public IActionResult Delete(int id)
+        {
+            var result = _publicacaoService.Delete(id);
+
+            if (!result.IsSuccess)
+            {
+                return NotFound();
+            }
+
+            return NoContent();
+        }
+        [HttpPut("Edicao/{id}")]
+        public IActionResult Atualizar(int id, UpdatePublicacaoInputModel model)
+        {
+            var result = _publicacaoService.Update(id, model);
+
+            if (!result.IsSuccess)
+            {
+                return NotFound();
+            }
+
+            return NoContent();
+        }
+
+        [HttpGet("BuscarPorId/{id}")]
+        public IActionResult GetById(int id)
+        {
+            var result = _publicacaoService.GetById(id);
+
+            if (!result.IsSuccess)
+            {
+                return NotFound();
+            }
+
+            return Ok(result);
+        }
+
+        [HttpGet("Listagem/{idPerfil}")]
+        public IActionResult GetAll(int idPerfil)
+        {
+            var result = _publicacaoService.GetAll(idPerfil);
+
+            return Ok(result);
+        }
+    }
+}

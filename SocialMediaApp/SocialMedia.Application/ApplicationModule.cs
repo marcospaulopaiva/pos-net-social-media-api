@@ -17,6 +17,7 @@ namespace SocialMedia.Application
         {
             services.AddScoped<IContaService, ContaService>();
             services.AddScoped<IPerfilService, PerfilService>();
+            services.AddScoped<IPublicacaoService, PublicacaoService>();
 
             return services;
         }

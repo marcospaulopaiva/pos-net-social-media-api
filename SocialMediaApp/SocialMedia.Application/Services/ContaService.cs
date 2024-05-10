@@ -50,7 +50,7 @@ namespace SocialMedia.Application.Services
 
             if (conta is null)
             {
-                return ResultViewModel.Error("Not faund");
+                return ResultViewModel.Error("Not found");
             }
 
             conta.SetAsDeleted();
