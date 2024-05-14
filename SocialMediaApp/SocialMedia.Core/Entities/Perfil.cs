@@ -11,6 +11,8 @@
             Foto = foto;
             Localidade = localidade;
             Profissao = profissao;
+
+            Publicacoes = [];
         }
 
         public int IdConta { get; private set; }

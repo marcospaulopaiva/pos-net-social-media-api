@@ -23,5 +23,7 @@
             DataPublicacao = dataPublicacao;
             Localidade = localidade;
         }
+
     }
+
 }
