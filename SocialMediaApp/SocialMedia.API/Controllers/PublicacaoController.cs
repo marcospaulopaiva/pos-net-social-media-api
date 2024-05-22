@@ -15,7 +15,7 @@ namespace SocialMedia.API.Controllers
             _publicacaoService = publicacaoService;
         }
 
-        [HttpPost("Cadastro/{id}")]
+        [HttpPost("{id}")]
         public IActionResult Cadastro(int id, CreatePublicacaoInputModel model)
         {
             var result = _publicacaoService.Insert(id, model);
@@ -23,7 +23,7 @@ namespace SocialMedia.API.Controllers
             return CreatedAtAction(nameof(GetById), new { id = result.Data }, model);
         }
 
-        [HttpDelete("Remocao/{id}")]
+        [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
             var result = _publicacaoService.Delete(id);
@@ -35,7 +35,7 @@ namespace SocialMedia.API.Controllers
 
             return NoContent();
         }
-        [HttpPut("Edicao/{id}")]
+        [HttpPut("{id}")]
         public IActionResult Atualizar(int id, UpdatePublicacaoInputModel model)
         {
             var result = _publicacaoService.Update(id, model);
@@ -48,7 +48,7 @@ namespace SocialMedia.API.Controllers
             return NoContent();
         }
 
-        [HttpGet("BuscarPorId/{id}")]
+        [HttpGet("PorId/{id}")]
         public IActionResult GetById(int id)
         {
             var result = _publicacaoService.GetById(id);

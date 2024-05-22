@@ -16,7 +16,7 @@ namespace SocialMedia.API.Controllers
             _contaService = contaService;
         }
 
-        [HttpPost("Cadastro")]
+        [HttpPost]
         public IActionResult Cadastro(CreateContaInputModel model)
         {
             var result = _contaService.Insert(model);
@@ -24,7 +24,7 @@ namespace SocialMedia.API.Controllers
             return CreatedAtAction(nameof(GetById), new { id = result.Data }, model);
         }
 
-        [HttpGet("BuscarPorId/{id}")]
+        [HttpGet("PorId/{id}")]
         public IActionResult GetById(int id)
         {
             var result = _contaService.GetById(id);
@@ -37,7 +37,7 @@ namespace SocialMedia.API.Controllers
             return Ok(result);
         }
 
-        [HttpGet("BuscarPorEmail/{email}")]
+        [HttpGet("PorEmail/{email}")]
         public IActionResult GetByEmail(string email)
         {
             var result = _contaService.GetByEmail(email);
@@ -50,7 +50,7 @@ namespace SocialMedia.API.Controllers
             return Ok(result);
         }
 
-        [HttpPut("Atualizar/{id}")]
+        [HttpPut("{id}")]
         public IActionResult Atualizar(int id, UpdateContaInputModel model)
         {
             var result = _contaService.Update(id, model);
@@ -63,7 +63,7 @@ namespace SocialMedia.API.Controllers
             return NoContent();
         }
 
-        [HttpDelete("Deletar/{id}")]
+        [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
             var result = _contaService.Delete(id);
@@ -102,7 +102,7 @@ namespace SocialMedia.API.Controllers
             return Ok(result);
         }
 
-        [HttpPost("{id}/perfil/Cadastro")]
+        [HttpPost("{id}/perfil")]
         public IActionResult PostPerfil(int id, CreatePerfilInputModel model)
         {
             var result = _contaService.Perfil(id, model);

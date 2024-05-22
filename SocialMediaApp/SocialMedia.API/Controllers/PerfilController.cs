@@ -15,7 +15,7 @@ namespace SocialMedia.API.Controllers
             _perfilService = perfilService;
         }
 
-        [HttpPut("Atualizar/{id}")]
+        [HttpPut("{id}")]
         public IActionResult Atualizar(int id, UpdatePerfilInputModel model)
         {
             var result = _perfilService.Update(id, model);
@@ -28,7 +28,7 @@ namespace SocialMedia.API.Controllers
             return NoContent();
         }
 
-        [HttpGet("Detalhes/{id}")]
+        [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
             var result = _perfilService.GetById(id);
@@ -50,7 +50,7 @@ namespace SocialMedia.API.Controllers
             return Ok(result);
         }
 
-        [HttpDelete("Desativar/{id}")]
+        [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
             var result = _perfilService.Delete(id);
