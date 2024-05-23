@@ -5,7 +5,7 @@ using SocialMedia.Core.Entities;
 using SocialMedia.Core.Repositories;
 using static SocialMedia.Application.Models.Contas.ContaDetailsViewModel;
 
-namespace SocialMedia.Application.Services
+namespace SocialMedia.Application.Services.Contas
 {
     public class ContaService : IContaService
     {
@@ -79,7 +79,7 @@ namespace SocialMedia.Application.Services
         {
             var conta = _contaRepository.GetByEmail(email);
 
-            if ((conta != null) && (conta.Senha == model.Senha))
+            if (conta != null && conta.Senha == model.Senha)
             {
                 conta.MudarSenha(model.NovaSenha);
 
@@ -94,7 +94,7 @@ namespace SocialMedia.Application.Services
         {
             var conta = _contaRepository.GetByEmail(email);
 
-            if ((conta != null) && (conta.Senha == senha))
+            if (conta != null && conta.Senha == senha)
             {
                 return ResultViewModel.Success();
             }

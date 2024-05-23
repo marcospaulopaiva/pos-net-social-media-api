@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SocialMedia.Application.Models.Publicacoes;
-using SocialMedia.Application.Services;
+using SocialMedia.Application.Services.Publicacoes;
 
 namespace SocialMedia.API.Controllers
 {

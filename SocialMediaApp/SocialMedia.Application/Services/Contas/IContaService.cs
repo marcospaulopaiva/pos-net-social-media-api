@@ -3,7 +3,7 @@ using SocialMedia.Application.Models.Contas;
 using SocialMedia.Application.Models.Perfis;
 using static SocialMedia.Application.Models.Contas.ContaDetailsViewModel;
 
-namespace SocialMedia.Application.Services
+namespace SocialMedia.Application.Services.Contas
 {
     public interface IContaService
     {

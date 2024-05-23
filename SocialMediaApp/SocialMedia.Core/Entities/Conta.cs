@@ -20,6 +20,7 @@
         public DateTime DataNascimento { get; private set; }
         public string Telefone { get; private set; }
         public List<Perfil> Perfis { get; private set; }
+        public List<Conexao> Conexoes { get; private set; }
 
         public void Update(string nomeCompleto, DateTime dataNascimento)
         {

@@ -2,7 +2,7 @@
 using SocialMedia.Application.Models.Perfis;
 using SocialMedia.Core.Repositories;
 
-namespace SocialMedia.Application.Services
+namespace SocialMedia.Application.Services.Perfis
 {
     internal class PerfilService : IPerfilService
     {
@@ -11,7 +11,6 @@ namespace SocialMedia.Application.Services
         {
             _perfilRepository = perfilRepository;
         }
-        
         public ResultViewModel Update(int id, UpdatePerfilInputModel model)
         {
             var perfil = _perfilRepository.GetById(id);

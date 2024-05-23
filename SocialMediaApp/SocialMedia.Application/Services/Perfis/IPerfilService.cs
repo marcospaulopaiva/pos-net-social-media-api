@@ -1,7 +1,7 @@
 ﻿using SocialMedia.Application.Models;
 using SocialMedia.Application.Models.Perfis;
 
-namespace SocialMedia.Application.Services
+namespace SocialMedia.Application.Services.Perfis
 {
     public interface IPerfilService
     {

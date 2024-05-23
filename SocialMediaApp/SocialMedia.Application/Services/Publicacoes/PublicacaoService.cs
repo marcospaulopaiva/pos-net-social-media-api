@@ -3,7 +3,7 @@ using SocialMedia.Application.Models.Publicacoes;
 using SocialMedia.Core.Entities;
 using SocialMedia.Core.Repositories;
 
-namespace SocialMedia.Application.Services
+namespace SocialMedia.Application.Services.Publicacoes
 {
     public class PublicacaoService : IPublicacaoService
     {
@@ -31,7 +31,7 @@ namespace SocialMedia.Application.Services
         {
             var publicacao = _publicacaoRepository.GetById(id);
 
-            if(publicacao is null)
+            if (publicacao is null)
             {
                 return ResultViewModel.Error("Not Found");
             }
