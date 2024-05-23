@@ -32,6 +32,8 @@ namespace SocialMedia.Infrastructure
             services.AddScoped<IContaRepository, ContaRepository>();
             services.AddScoped<IPerfilRepository, PerfilRepository>();
             services.AddScoped<IPublicacaoRepository, PublicacaoRepository>();
+            services.AddScoped<IConexaoRepository, ConexaoRepository>();
+            
             return services;
         }
     }

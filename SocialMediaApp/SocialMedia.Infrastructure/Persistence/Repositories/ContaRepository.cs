@@ -3,7 +3,7 @@ using SocialMedia.Core.Repositories;
 
 namespace SocialMedia.Infrastructure.Persistence.Repositories
 {
-    internal class ContaRepository : IContaRepository
+    public class ContaRepository : IContaRepository
     {
         private readonly SocialMediaDbContext _context;
 
