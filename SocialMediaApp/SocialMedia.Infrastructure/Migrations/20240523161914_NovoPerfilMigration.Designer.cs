@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SocialMedia.Infrastructure.Persistence;
 
@@ -11,9 +12,11 @@ using SocialMedia.Infrastructure.Persistence;
 namespace SocialMedia.Infrastructure.Migrations
 {
     [DbContext(typeof(SocialMediaDbContext))]
-    partial class SocialMediaDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240523161914_NovoPerfilMigration")]
+    partial class NovoPerfilMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -34,7 +37,7 @@ namespace SocialMedia.Infrastructure.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("DataConexao")
-                        .HasColumnType("datetime");
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("IdSeguido")
                         .HasColumnType("int");
@@ -47,7 +50,7 @@ namespace SocialMedia.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Conexao", (string)null);
+                    b.ToTable("Conexoes");
                 });
 
             modelBuilder.Entity("SocialMedia.Core.Entities.Conta", b =>
@@ -145,13 +148,13 @@ namespace SocialMedia.Infrastructure.Migrations
 
                     b.Property<string>("Conteudo")
                         .IsRequired()
-                        .HasColumnType("varchar(max)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("DataPublicacao")
-                        .HasColumnType("datetime");
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("IdPerfil")
                         .HasColumnType("int");
@@ -161,13 +164,13 @@ namespace SocialMedia.Infrastructure.Migrations
 
                     b.Property<string>("Localidade")
                         .IsRequired()
-                        .HasColumnType("varchar(20)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("IdPerfil");
 
-                    b.ToTable("Publicacao", (string)null);
+                    b.ToTable("Publicacoes");
                 });
 
             modelBuilder.Entity("SocialMedia.Core.Entities.Perfil", b =>
