@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SocialMedia.Application.Models.Contas;
 using SocialMedia.Application.Models.Perfis;
-using SocialMedia.Application.Services;
+using SocialMedia.Application.Services.Contas;
 
 namespace SocialMedia.API.Controllers
 {

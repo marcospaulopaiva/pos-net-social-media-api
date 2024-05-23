@@ -1,7 +1,7 @@
 ﻿using SocialMedia.Application.Models;
 using SocialMedia.Application.Models.Publicacoes;
 
-namespace SocialMedia.Application.Services
+namespace SocialMedia.Application.Services.Publicacoes
 {
     public interface IPublicacaoService
     {

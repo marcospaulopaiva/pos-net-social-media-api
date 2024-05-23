@@ -5,8 +5,7 @@ namespace SocialMedia.Infrastructure.Persistence
 {
     public class SocialMediaDbContext : DbContext
     {
-        public SocialMediaDbContext(
-            DbContextOptions<SocialMediaDbContext> options)
+        public SocialMediaDbContext(DbContextOptions<SocialMediaDbContext> options)
             : base(options)
         {
 
@@ -15,6 +14,7 @@ namespace SocialMedia.Infrastructure.Persistence
         public DbSet<Conta> Contas { get; set; }
         public DbSet<Perfil> Perfis { get; set; }
         public DbSet<Publicacao> Publicacoes { get; set; }
+        public DbSet<Conexao> Conexoes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -41,6 +41,12 @@ namespace SocialMedia.Infrastructure.Persistence
             builder.Entity<Publicacao>(e =>
             {
                 e.HasKey(p => p.Id);
+            });
+
+
+            builder.Entity<Conexao>(e =>
+            {
+                e.HasKey(c => c.Id);
             });
 
 

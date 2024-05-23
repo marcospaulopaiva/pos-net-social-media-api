@@ -1,5 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using SocialMedia.Application.Services;
+using SocialMedia.Application.Services.Contas;
+using SocialMedia.Application.Services.Perfis;
+using SocialMedia.Application.Services.Publicacoes;
 
 namespace SocialMedia.Application
 {
