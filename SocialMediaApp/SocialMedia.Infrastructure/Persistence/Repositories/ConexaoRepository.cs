@@ -7,6 +7,11 @@ namespace SocialMedia.Infrastructure.Persistence.Repositories
     {
         private readonly SocialMediaDbContext _context;
 
+        public ConexaoRepository(SocialMediaDbContext context)
+        {
+            _context = context;
+        }
+
         public int Add(Conexao conexao)
         {
             _context.Conexoes.Add(conexao);
