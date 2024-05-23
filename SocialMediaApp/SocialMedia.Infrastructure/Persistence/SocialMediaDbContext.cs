@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SocialMedia.Core.Entities;
+using SocialMedia.Infrastructure.Persistence.Mappings;
 
 namespace SocialMedia.Infrastructure.Persistence
 {
@@ -18,15 +19,8 @@ namespace SocialMedia.Infrastructure.Persistence
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<Conta>(e =>
-            {
-                e.HasKey(c => c.Id);
 
-                e.HasMany(c => c.Perfis)
-                    .WithOne(p => p.Conta)
-                    .HasForeignKey(p => p.IdConta)
-                    .OnDelete(DeleteBehavior.Restrict);
-            });
+            builder.ApplyConfiguration(new ContaMap());
 
             builder.Entity<Perfil>(e =>
             {
