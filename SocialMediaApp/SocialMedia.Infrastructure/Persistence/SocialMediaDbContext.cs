@@ -21,16 +21,18 @@ namespace SocialMedia.Infrastructure.Persistence
         {
 
             builder.ApplyConfiguration(new ContaMap());
+            
+            builder.ApplyConfiguration(new PerfilMap());
 
-            builder.Entity<Perfil>(e =>
-            {
-                e.HasKey(p => p.Id);
+            //builder.Entity<Perfil>(e =>
+            //{
+            //    e.HasKey(p => p.Id);
 
-                e.HasMany(p => p.Publicacoes)
-                    .WithOne(u => u.Perfil)
-                    .HasForeignKey(u => u.IdPerfil)
-                    .OnDelete(DeleteBehavior.Restrict);
-            });
+            //    e.HasMany(p => p.Publicacoes)
+            //        .WithOne(u => u.Perfil)
+            //        .HasForeignKey(u => u.IdPerfil)
+            //        .OnDelete(DeleteBehavior.Restrict);
+            //});
 
             builder.Entity<Publicacao>(e =>
             {
