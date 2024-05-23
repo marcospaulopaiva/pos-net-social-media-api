@@ -11,11 +11,7 @@
         }
 
         public int IdSeguidor { get; private set; }
-        public Conta? Seguidor { get; private set; }
-
         public int IdSeguido { get; private set; }
-        public Conta? Seguindo { get; private set; }
-
         public DateTime DataConexao { get; private set; }
     }
 }

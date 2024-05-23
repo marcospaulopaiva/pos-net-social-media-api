@@ -5,8 +5,7 @@ namespace SocialMedia.Infrastructure.Persistence
 {
     public class SocialMediaDbContext : DbContext
     {
-        public SocialMediaDbContext(
-            DbContextOptions<SocialMediaDbContext> options)
+        public SocialMediaDbContext(DbContextOptions<SocialMediaDbContext> options)
             : base(options)
         {
 
@@ -27,19 +26,6 @@ namespace SocialMedia.Infrastructure.Persistence
                     .WithOne(p => p.Conta)
                     .HasForeignKey(p => p.IdConta)
                     .OnDelete(DeleteBehavior.Restrict);
-
-                e.HasMany(c => c.Conexoes)
-                    .WithOne(co => co.Seguidor)
-                    .HasForeignKey(co => co.IdSeguidor)
-                    .IsRequired()
-                    .OnDelete(DeleteBehavior.Restrict);
-
-                e.HasMany(c => c.Conexoes)
-                    .WithOne(co => co.Seguidor)
-                    .HasForeignKey(co => co.IdSeguido)
-                    .IsRequired()
-                    .OnDelete(DeleteBehavior.Restrict);
-
             });
 
             builder.Entity<Perfil>(e =>
@@ -62,6 +48,7 @@ namespace SocialMedia.Infrastructure.Persistence
             {
                 e.HasKey(c => c.Id);
             });
+
 
             base.OnModelCreating(builder);
         }
