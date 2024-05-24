@@ -2,16 +2,19 @@
 {
     public class Conexao : BaseEntity
     {
-        public Conexao(int idSeguidor, int idSeguido, DateTime dataConexao)
+        public Conexao(int idPerfil, int idPerfilSeguido, DateTime dataConexao)
             : base()
         {
-            IdSeguidor = idSeguidor;
-            IdSeguido = idSeguido;
+            IdPerfil = idPerfil;
+            IdPerfilSeguido = idPerfilSeguido;
             DataConexao = dataConexao;
         }
 
-        public int IdSeguidor { get; private set; }
-        public int IdSeguido { get; private set; }
+        public int IdPerfil { get; private set; }
+        public Perfil Perfil { get; private set; }
+
+        public int IdPerfilSeguido { get; private set; }
+
         public DateTime DataConexao { get; private set; }
     }
 }

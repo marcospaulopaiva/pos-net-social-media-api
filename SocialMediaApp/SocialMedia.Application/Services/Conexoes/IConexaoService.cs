@@ -1,6 +1,5 @@
 ﻿using SocialMedia.Application.Models;
 using SocialMedia.Application.Models.Conexoes;
-using static SocialMedia.Application.Models.Contas.ContaDetailsViewModel;
 
 namespace SocialMedia.Application.Services.Conexoes
 {
@@ -11,5 +10,7 @@ namespace SocialMedia.Application.Services.Conexoes
         ResultViewModel<ConexaoViewModel?> GetById(int id);
 
         ResultViewModel Delete(int id);
+
+        ResultViewModel<List<ConexaoViewModel>> GetAll(int idPerfil);
     }
 }

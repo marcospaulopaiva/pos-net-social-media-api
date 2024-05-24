@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using SocialMedia.Application.Services.Conexoes;
 using SocialMedia.Application.Services.Contas;
+using SocialMedia.Application.Services.Feeds;
 using SocialMedia.Application.Services.Perfis;
 using SocialMedia.Application.Services.Publicacoes;
 
@@ -22,6 +23,7 @@ namespace SocialMedia.Application
             services.AddScoped<IPerfilService, PerfilService>();
             services.AddScoped<IPublicacaoService, PublicacaoService>();
             services.AddScoped<IConexaoService, ConexaoService>();
+            services.AddScoped<IFeedService, FeedService>();
 
             return services;
         }

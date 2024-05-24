@@ -49,5 +49,13 @@ namespace SocialMedia.API.Controllers
 
             return NoContent();
         }
+
+        [HttpGet("Listagem/{idPerfil}")]
+        public IActionResult GetAll(int idPerfil)
+        {
+            var result = _conexaoService.GetAll(idPerfil);
+
+            return Ok(result);
+        }
     }
 }

@@ -2,9 +2,9 @@
 {
     public class CreateConexaoInputModel
     {
-        public int IdSeguidor { get; set; }
+        public int IdPerfil { get; set; }
 
-        public int IdSeguido { get; set; }
+        public int IdPerfilSeguido { get; set; }
 
         public DateTime DataConexao { get; set; }
     }
