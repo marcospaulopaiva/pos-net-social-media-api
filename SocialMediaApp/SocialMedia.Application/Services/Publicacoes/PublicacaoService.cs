@@ -14,10 +14,10 @@ namespace SocialMedia.Application.Services.Publicacoes
             _publicacaoRepository = publicacaoRepository;
         }
 
-        public ResultViewModel<int> Insert(int id, CreatePublicacaoInputModel model)
+        public ResultViewModel<int> Insert(int idPerfil, CreatePublicacaoInputModel model)
         {
             var publicacao = new Publicacao(
-                id,
+                idPerfil,
                 model.Conteudo,
                 model.DataPublicacao,
                 model.Localidade

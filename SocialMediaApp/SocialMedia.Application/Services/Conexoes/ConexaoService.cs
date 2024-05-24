@@ -17,8 +17,8 @@ namespace SocialMedia.Application.Services.Conexoes
         public ResultViewModel<int> Insert(CreateConexaoInputModel model)
         {
             var conexao = new Conexao(
-                model.IdSeguidor,
-                model.IdSeguido,
+                model.IdPerfil,
+                model.IdPerfilSeguido,
                 model.DataConexao
                 );
 
@@ -51,5 +51,14 @@ namespace SocialMedia.Application.Services.Conexoes
             return ResultViewModel.Success();
         }
 
+        public ResultViewModel<List<ConexaoViewModel>> GetAll(int idPerfil)
+        {
+            var listaConexoes = _conexaoRepository.GetAll(idPerfil);
+
+            var model = listaConexoes.Select(
+                ConexaoViewModel.FromEntity).ToList();
+
+            return ResultViewModel<List<ConexaoViewModel>>.Success(model);
+        }
     }
 }

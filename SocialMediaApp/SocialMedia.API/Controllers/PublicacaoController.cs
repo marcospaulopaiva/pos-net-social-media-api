@@ -15,10 +15,10 @@ namespace SocialMedia.API.Controllers
             _publicacaoService = publicacaoService;
         }
 
-        [HttpPost("{id}")]
-        public IActionResult Cadastro(int id, CreatePublicacaoInputModel model)
+        [HttpPost("{idPerfil}")]
+        public IActionResult Cadastro(int idPerfil, CreatePublicacaoInputModel model)
         {
-            var result = _publicacaoService.Insert(id, model);
+            var result = _publicacaoService.Insert(idPerfil, model);
 
             return CreatedAtAction(nameof(GetById), new { id = result.Data }, model);
         }

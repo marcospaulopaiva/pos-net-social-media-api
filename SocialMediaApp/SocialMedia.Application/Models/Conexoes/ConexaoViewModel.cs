@@ -4,27 +4,27 @@ namespace SocialMedia.Application.Models.Conexoes
 {
     public class ConexaoViewModel
     {
-        public ConexaoViewModel(int id, int idSeguidor, int idSeguido, DateTime dataConexao)
+        public ConexaoViewModel(int id, int idPerfil, int idPerfilSeguido, DateTime dataConexao)
         {
             Id = id;
-            IdSeguidor = idSeguidor;
-            IdSeguido = idSeguido;
+            IdPerfil = idPerfil;
+            IdPerfilSeguido = idPerfilSeguido;
             DataConexao = dataConexao;
         }
 
         public int Id { get; set; }
 
-        public int IdSeguidor { get;  set; }
+        public int IdPerfil { get; private set; }
 
-        public int IdSeguido { get;  set; }
+        public int IdPerfilSeguido { get; private set; }
 
         public DateTime DataConexao { get;  set; }
 
         public static ConexaoViewModel? FromEntity(Conexao entity)
             => new(
                 entity.Id,
-                entity.IdSeguidor,
-                entity.IdSeguido,
+                entity.IdPerfil,
+                entity.IdPerfilSeguido,
                 entity.DataConexao
                 );
     }

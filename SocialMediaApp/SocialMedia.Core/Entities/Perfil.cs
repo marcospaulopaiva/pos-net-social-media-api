@@ -13,6 +13,7 @@
             Profissao = profissao;
 
             Publicacoes = [];
+            Conexoes = [];
         }
 
         public int IdConta { get; private set; }
@@ -23,6 +24,7 @@
         public string Localidade { get; private set; }
         public string Profissao { get; private set; }
         public List<Publicacao> Publicacoes { get; private set; }
+        public List<Conexao> Conexoes { get; private set; }
 
         public void Update(string nomeExibicao, string sobre, string foto, string localidade, string profissao)
         {

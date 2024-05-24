@@ -39,5 +39,15 @@ namespace SocialMedia.Infrastructure.Persistence.Repositories
             _context.Conexoes.Update(conexao);
             _context.SaveChanges();
         }
+        public List<Conexao>? GetAll(int idPerfil)
+        {
+           var listaConexao = _context
+                .Conexoes
+                .Where(c => c.IdPerfil == idPerfil)
+                .ToList();
+
+            return listaConexao;
+        }
+
     }
 }

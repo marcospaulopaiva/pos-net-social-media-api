@@ -8,5 +8,6 @@ namespace SocialMedia.Core.Repositories
         void Update(Conexao conexao);
         void Delete(Conexao conexao);
         Conexao? GetById(int id);
+        List<Conexao>? GetAll(int idPerfil);
     }
 }

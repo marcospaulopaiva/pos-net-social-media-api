@@ -15,6 +15,7 @@ namespace SocialMedia.Infrastructure.Persistence.Mappings
             builder.Property(c => c.DataConexao)
                 .HasColumnType("datetime")
                 .IsRequired();
+
         }
     }
 }
