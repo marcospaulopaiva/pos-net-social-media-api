@@ -43,7 +43,7 @@ O projeto está separado em três MVP´s
 |  MVP  | Funcionalidades                      |
 |------| -----------------------------  | 
 |  ✅ | Contas, Perfis, Publicações    |
-|  ❌ | Conexões, Feed                 |
+|  ✅ | Conexões, Feed                 |
 |  ❌ | Mensagens, Grupos, Notificação | 
 
 
