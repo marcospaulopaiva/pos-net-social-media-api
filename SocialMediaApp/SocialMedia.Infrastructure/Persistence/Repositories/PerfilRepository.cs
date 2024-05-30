@@ -1,4 +1,5 @@
-﻿using SocialMedia.Core.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using SocialMedia.Core.Entities;
 using SocialMedia.Core.Repositories;
 
 namespace SocialMedia.Infrastructure.Persistence.Repositories

@@ -18,8 +18,7 @@ namespace SocialMedia.Application.Services.Conexoes
         {
             var conexao = new Conexao(
                 model.IdPerfil,
-                model.IdPerfilSeguido,
-                model.DataConexao
+                model.IdPerfilSeguido
                 );
 
             _conexaoRepository.Add(conexao);

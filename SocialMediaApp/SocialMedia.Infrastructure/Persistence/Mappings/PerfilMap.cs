@@ -37,9 +37,15 @@ namespace SocialMedia.Infrastructure.Persistence.Mappings
                 .HasForeignKey(u => u.IdPerfil)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.HasMany(p => p.Conexoes)
+
+            builder.HasMany(p => p.ConexoesPerfil)
                 .WithOne(c => c.Perfil)
                 .HasForeignKey(c => c.IdPerfil)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasMany(p => p.ConexoesPerfilSeguido)
+                .WithOne(c => c.PerfilSeguido)
+                .HasForeignKey(c => c.IdPerfilSeguido)
                 .OnDelete(DeleteBehavior.Restrict);
 
         }

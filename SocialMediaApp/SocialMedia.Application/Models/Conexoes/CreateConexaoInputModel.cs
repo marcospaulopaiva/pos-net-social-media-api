@@ -6,6 +6,5 @@
 
         public int IdPerfilSeguido { get; set; }
 
-        public DateTime DataConexao { get; set; }
     }
 }
