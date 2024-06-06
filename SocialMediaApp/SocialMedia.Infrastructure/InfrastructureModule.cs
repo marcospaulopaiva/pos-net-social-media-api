@@ -33,7 +33,8 @@ namespace SocialMedia.Infrastructure
             services.AddScoped<IPerfilRepository, PerfilRepository>();
             services.AddScoped<IPublicacaoRepository, PublicacaoRepository>();
             services.AddScoped<IConexaoRepository, ConexaoRepository>();
-            
+            services.AddScoped<IFeedRepository, FeedRepository>();
+
             return services;
         }
     }

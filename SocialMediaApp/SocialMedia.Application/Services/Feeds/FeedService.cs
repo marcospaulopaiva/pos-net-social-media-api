@@ -6,37 +6,27 @@ namespace SocialMedia.Application.Services.Feeds
 {
     public class FeedService : IFeedService
     {
-        private readonly IConexaoRepository _conexaoRepository;
-        private readonly IPerfilRepository _perfilRepository;
-        private readonly IPublicacaoRepository _publicacaoRepository;
+        private readonly IFeedRepository _feedRepository;
 
-        public FeedService(IConexaoRepository conexaoRepository, IPerfilRepository perfilRepository, IPublicacaoRepository publicacaoRepository)
+        public FeedService(IFeedRepository feedRepository)
         {
-            _conexaoRepository = conexaoRepository;
-            _perfilRepository = perfilRepository;
-            _publicacaoRepository = publicacaoRepository;
+            _feedRepository = feedRepository;
         }
 
-        public ResultViewModel<List<FeedViewModel>> GetAll(int idPerfil)
+
+        public ResultViewModel<List<FeedViewModel>> GetAll(int idPerfil, int pagina, int tamanho)
         {
             List<FeedViewModel> listaFeedViewModel = [];
             
-            var listaConexoes = _conexaoRepository.GetAll(idPerfil);
+            var listaPublicacoes = _feedRepository.GetAll(idPerfil, pagina, tamanho);
 
-            foreach (var conexao in listaConexoes)
+            foreach (var publicacao in listaPublicacoes)
             {
-                var perfil = _perfilRepository.GetById(conexao.IdPerfilSeguido);
-
-                var listaPublicacoes = _publicacaoRepository.GetAll(conexao.IdPerfilSeguido);
-
-                foreach (var publicacao in listaPublicacoes)
-                {
-                    listaFeedViewModel.Add(FeedViewModel.FromEntitys(perfil, publicacao));
-                }
-
+                listaFeedViewModel.Add(FeedViewModel.FromEntitys(publicacao.Perfil, publicacao));
             }
 
             return ResultViewModel<List<FeedViewModel>>.Success(listaFeedViewModel.OrderByDescending(p => p.DataPublicacao).ToList());
         }
+
     }
 }
